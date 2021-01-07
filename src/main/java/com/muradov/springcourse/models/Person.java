@@ -1,15 +1,32 @@
 package com.muradov.springcourse.models;
 
+
+
+import javax.validation.constraints.*;
+
 public class Person {
     private int id;
+    @NotNull
+    @NotEmpty(message = "Name shouldn't be empty")
+    @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
     private String name;
+
+    @Min(value = 0,message = "Age should be more than zero")
+    private int age;
+
+    @NotNull
+    @NotEmpty(message = "Name shouldn't be empty")
+    @Email(message = "Enter valid Email ")
+    private String email;
 
     public Person() {
     }
 
-    public Person(int id, String name) {
+    public Person(int id, String name, int age, String email) {
         this.id = id;
         this.name = name;
+        this.age = age;
+        this.email = email;
     }
 
     public int getId() {
@@ -26,5 +43,21 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
