@@ -5,6 +5,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.sql.DataSource;
 
 
 public class MySpringMvcDispatcherSerlvetIntitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -33,4 +34,6 @@ public class MySpringMvcDispatcherSerlvetIntitializer extends AbstractAnnotation
         aContext.addFilter("hiddenHttpMethodFilter",
                 new  HiddenHttpMethodFilter()).addMappingForUrlPatterns(null ,true, "/*");
     }
+
+
 }
